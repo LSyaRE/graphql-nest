@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2021",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "paths":{
+      "@config": [
+        "./src/config"
+      ],
+
+      "@database": [
+        "./src/database"
+      ],
+      "@shared/enums": [
+        "./src/shared/enums"
+      ],
+      "@shared/models": [
+        "./src/shared/models"
+      ],
+      "@shared/validation": [
+        "./src/shared/validation"
+      ],
+    },
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false
+  }
+}

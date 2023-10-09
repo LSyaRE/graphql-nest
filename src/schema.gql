@@ -1,0 +1,53 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Actor {
+  """Example field (placeholder)"""
+  id: ID!
+
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+type Topic {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+type Query {
+  actors: [Actor!]!
+  actor(id: String!): Actor!
+  topic(id: Int!): Topic!
+}
+
+type Mutation {
+  createActor(createActorInput: CreateActorInput!): Actor!
+  updateActor(updateActorInput: UpdateActorInput!): Actor!
+  removeActor(id: String!): Actor!
+  createTopic(createTopicInput: CreateTopicInput!): Topic!
+  updateTopic(updateTopicInput: UpdateTopicInput!): Topic!
+  removeTopic(id: Int!): Topic!
+}
+
+input CreateActorInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateActorInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+  id: String!
+}
+
+input CreateTopicInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateTopicInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
