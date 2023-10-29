@@ -15,10 +15,15 @@ type Topic {
   exampleField: Int!
 }
 
+type Matriz {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
 type Query {
-  actors: [Actor!]!
   actor(id: String!): Actor!
   topic(id: Int!): Topic!
+  matriz(id: Int!): Matriz!
 }
 
 type Mutation {
@@ -28,6 +33,9 @@ type Mutation {
   createTopic(createTopicInput: CreateTopicInput!): Topic!
   updateTopic(updateTopicInput: UpdateTopicInput!): Topic!
   removeTopic(id: Int!): Topic!
+  createMatriz(createMatrizInput: CreateMatrizInput!): Matriz!
+  updateMatriz(updateMatrizInput: UpdateMatrizInput!): Matriz!
+  removeMatriz(id: Int!): Matriz!
 }
 
 input CreateActorInput {
@@ -50,4 +58,20 @@ input UpdateTopicInput {
   """Example field (placeholder)"""
   exampleField: Int
   id: Int!
+}
+
+input CreateMatrizInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateMatrizInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
+
+type Subscription {
+  actors: Actor!
+  matriz: [Matriz!]!
 }

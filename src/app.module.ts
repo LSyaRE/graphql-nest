@@ -11,6 +11,7 @@ import { config } from '@config';
 import { enviroments } from './enviroments';
 import { ConfigModule } from '@nestjs/config';
 import { DatabaseModule } from '@database';
+import { MatrizModule } from './modules/targeting/matriz/matriz.module';
 
 
 @Module({
@@ -20,7 +21,29 @@ import { DatabaseModule } from '@database';
       driver: ApolloDriver,
       // playground: false,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+      subscriptions: {
+        'graphql-ws': {
+          path: '/graphql',
+          onConnect: () => {
+            // const { connectionParams, extra } = context;
+    
+            console.log("Connecting to GraphQL-WS");
+            // extra.loaders = createTaskLoaders(tasksService);
+          },
+        },
+        
+        'subscriptions-transport-ws': {
+          path: '/graphql',
+          onConnect: (connectionParams) => {
+            console.log("Connecting to GraphQL-Subscriptions");
+            return {
+              // loaders: createTaskLoaders(tasksService),
+            };
+          },
+        },
+      },
     }),
+
     ConfigModule.forRoot({
       envFilePath: enviroments[process.env.NODE_ENV] || '.env',
       isGlobal: true,
@@ -37,6 +60,7 @@ import { DatabaseModule } from '@database';
     }),
     ActorsModule,
     TopicModule,
+    MatrizModule,
   ],
   controllers: [AppController],
   providers: [AppService],
